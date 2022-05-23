@@ -18,7 +18,7 @@ from c import code
 # linhas é o numero de linhas
 # nome é o nome do arquivo
 
-code(2, "main")
+code(linhas, nome)
 ```
 
 Recomendo o uso de Python 3.7 para cima.
