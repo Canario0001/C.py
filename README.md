@@ -8,7 +8,7 @@ O script automaticamente adiciona a função main com as chaves e a biblioteca i
 
 ## Uso
 
-Para usar, coloque o arquivo na mesma pasta que seu arquivo principal (normalmente, main.py) e então importe.
+Para usar, coloque o arquivo na mesma pasta que seu arquivo principal (normalmente, main.py) e então importe. O código, no momento, só será adicionado por meio de inputs na hora que estiver rodando.
 
 Exemplo:
 
@@ -21,11 +21,15 @@ from c import code
 code(linhas, nome)
 ```
 
+Também é possível rodar diretamente o `c.py`. Ele irá perguntar quantas linhas o arquivo terá e o nome do arquivo.
+
+
 Recomendo o uso de Python 3.7 para cima.
 
 ### Compilar
 
 Infelizmente, por ser um experimental, o programa não compila o código em C diretamente. 
+
 Recomendo o uso de ferramentas como o GCC ou Clang.
 
 ## Agradecimentos
