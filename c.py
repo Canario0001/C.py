@@ -31,7 +31,7 @@ def code(name):
             print(f'\nArquivo criado! Procure por {name}.c na pasta.')
             break
 
-        if linha[-1] != ';': linha += ';'
+        if linha != '' and linha[-1] != ';': linha += ';'
         with open(f'{name}.c', 'a') as f:
             f.write(f'{linha}\n')
         continue
