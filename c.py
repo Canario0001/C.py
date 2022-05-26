@@ -5,7 +5,7 @@ def code(name):
     print('PS: não se esqueça de colocar .h e <> se a biblioteca possuir isso.\n')
 
     while True:
-        library = input('>>> ').lower().strip()
+        library = input('>>> ').strip()
 
         if library == 'q': break
 
