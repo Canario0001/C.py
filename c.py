@@ -1,24 +1,40 @@
-def code(lines, file_name):
-    with open(f"{file_name}.c", "w") as f:
-        f.write("#include <stdio.h>\n\nint main() {\n")
+def code(name):
+    print('Digite as bibliotecas que você vai usar.\n')
+    print('Digite "init" se quiser usar APENAS a biblioteca inicial.')
+    print('Digite "q" se escrever todas as bibliotecas que vai usar.')
+    print('PS: não se esqueça de colocar .h e <> se a biblioteca possuir isso.\n')
 
-    for line in range(lines):
-        linha = input(">>> ")
+    while True:
+        library = input('>>> ').lower().strip()
 
-        if linha[-1] != ";": linha += ";"
+        if library == 'q': break
 
-        with open(f"{file_name}.c", "a") as f:
-            f.write(f"{linha}\n")
+        elif library == 'init':
+            with open(f'{name}.c', 'w') as f:
+                f.write('#include <stdio.h>\n\nint main() {\n')
+            break
 
-    with open(f"{file_name}.c", "a") as f:
-        f.write("}")
+        else:
+            with open(f'{name}.c', 'a') as f:
+                f.write(f'#include {library}\n')
+            continue
+
+    print('\nDigite seu código abaixo.\nPs: digite "sair" para fechar o programa.\n')
+
+    while True:
+        linha = input('>>> ')
+
+        if linha == 'sair':
+            with open(f'{name}.c', 'a') as f:
+                f.write('}\n')
+            
+            print(f'\nArquivo criado! Procure por {name}.c na pasta.')
+            break
+
+        if linha[-1] != ';': linha += ';'
+        with open(f'{name}.c', 'a') as f:
+            f.write(f'{linha}\n')
+        continue
 
 if __name__ == '__main__':
-    print("Quantas linhas você quer?")
-    linhas = int(input(">>> "))
-    print("\nQual será o nome do arquivo?")
-    nome = input(">>> ")
-
-    print("\nDigite seu código abaixo.\n")
-    code(linhas, nome)
-    print("\nArquivo criado! Procure por {}.c no diretório.".format(nome))
+    code('main')
