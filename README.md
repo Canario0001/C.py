@@ -38,4 +38,4 @@ Versão 1.1:
 
 ## Agradecimentos
 
-Quero agradecer meu amigo [Bergeno](https://github.com/bergeno) por me motivar a colocar esse projeto aqui, no GitHub
+Quero agradecer meu amigo [Bergeno](https://github.com/bergeno) por me motivar a colocar esse projeto aqui, no GitHub.
