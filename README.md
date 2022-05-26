@@ -4,7 +4,7 @@ Esse é um projeto para escrever código C em Python.
 
 O programa é mais um experimental e não algo profissional. Planejo, no futuro, aumentar ele.
 
-O script automaticamente adiciona a função main com as chaves e a biblioteca inicial de C. Todavia, o "return 0" deve ser colocado manualmente.
+O script automaticamente adiciona a função main com as chaves e as bibliotecas de sua escolha. Todavia, o "return 0" deve ser colocado manualmente.
 
 ## Uso
 
@@ -15,14 +15,12 @@ Exemplo:
 ```py
 from c import code
 
-# linhas é o numero de linhas
 # nome é o nome do arquivo
 
-code(linhas, nome)
+code(nome)
 ```
 
-Também é possível rodar diretamente o `c.py`. Ele irá perguntar quantas linhas o arquivo terá e o nome do arquivo.
-
+Também é possível rodar diretamente o `c.py`. Ele irá perguntar o nome do arquivo.
 
 Recomendo o uso de Python 3.7 para cima.
 
@@ -31,6 +29,12 @@ Recomendo o uso de Python 3.7 para cima.
 Infelizmente, por ser um experimental, o programa não compila o código em C diretamente. 
 
 Recomendo o uso de ferramentas como o GCC ou Clang.
+
+## Updates
+
+Versão 1.1:
+- Número ilimitado de linhas
+- Bibliotecas a escolha do usuário
 
 ## Agradecimentos
 
