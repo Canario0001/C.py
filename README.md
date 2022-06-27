@@ -22,8 +22,6 @@ code(nome)
 
 Também é possível rodar diretamente o `c.py`. Ele irá perguntar o nome do arquivo.
 
-Além disso, agora, o programa também disponibiliza a criação de protótipos já prontos.
-
 Recomendo o uso de Python 3.7 para cima.
 
 ## Compilar
@@ -37,6 +35,11 @@ Recomendo o uso de ferramentas como o GCC ou Clang.
 Versão 1.1:
 - Número ilimitado de linhas
 - Bibliotecas a escolha do usuário
+
+Versão 1.2:
+- Criação de protótipos, sendo eles:
+- Calculadora de hipotenusa
+- Olá mundo
 
 ## Agradecimentos
 
