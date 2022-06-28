@@ -11,9 +11,7 @@ def code(name):
     while True:
         library = input('>>> ').strip()
 
-        if library == 'q':
-            with open(f'{name}.c', 'a') as f: f.write('\nint main() {\n')
-            break
+        if library == 'q': break
 
         elif library == 'init':
             with open(f'{name}.c', 'w') as f:
