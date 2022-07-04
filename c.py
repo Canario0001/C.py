@@ -15,7 +15,7 @@ def code(name):
 
         elif library == 'init':
             with open(f'{name}.c', 'w') as f:
-                f.write('#include <stdio.h>\n\nint main() {\n')
+                f.write('#include <stdio.h>\n')
             break
 
         elif library == 'hypo':
@@ -33,6 +33,34 @@ def code(name):
                 f.write(f'#include {library}\n')
             continue
 
+    while True:
+        print('\nVocê quer criar uma função?\n')
+        print('[0] - Sim\n[1] - Não\n')
+        choice = int(input('>>> '))
+        if choice == 1: break
+        elif choice == 0:
+            print('\nQual será o valor retornado pela função?')
+            value = input('>>> ')
+            print('\nQual será o nome da função? ')
+            nome = input('>>> ')
+
+            argl = []
+            print('\nEscreva os argumentos (não se esqueça dos seus valores). Digite "sair" quando terminar.\n') # arrumar essa macarronada de codigo
+            while True:
+                arg = input('>>> ')
+                if arg == 'sair': break
+                else:
+                    argl.append(arg)
+                    continue
+
+            args = ', '.join(str(i) for i in argl)
+
+            customfunc(name, nome, value, str(args))
+        else:
+            print('Tente novamente.')
+            quit()
+    
+    with open(f'{name}.c', 'a') as f: f.write('int main() {\n')
     print('\nDigite seu código abaixo.\nPs: digite "sair" para fechar o programa.\n')
 
     while True:
@@ -40,7 +68,7 @@ def code(name):
 
         if linha == 'sair':
             with open(f'{name}.c', 'a') as f:
-                f.write('}\n')
+                f.write('}')
             
             print(f'\nArquivo criado! Procure por {name}.c na pasta.')
             break
@@ -58,6 +86,27 @@ def hypocode(name):
 def hellocode(name):
     with open(f'{name}.c', 'w') as f:
         f.write('#include <stdio.h>\nint main(){\nprintf("Olá, mundo!"); return 0;\n}')
+
+def customfunc(file, name, value, *args): # consertar aq com os argumentos etc.
+    with open(f'{file}.c', 'a') as f: f.write('{} {}({})'.format(value, name, *args))
+    with open(f'{file}.c', 'a') as f: f.write('{\n')
+
+    print('\nDigite seu código abaixo.\nPs: digite "end func" para encerrar a função e continuar ao código')
+
+    while True: 
+        line = input('>>> ')
+
+        if line == 'end func':
+            with open(f'{file}.c', 'a') as f: f.write('}\n')
+            print('\nFunção criada!\n')
+            break
+
+        if line != '' and line[-1] != ';': line += ';'
+
+        with open(f'{file}.c', 'a') as f:
+            f.write(f'{line}\n')
+        continue
+        
 
 if __name__ == '__main__':
     code('main')

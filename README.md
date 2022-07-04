@@ -38,8 +38,12 @@ Versão 1.1:
 
 Versão 1.2:
 - Criação de protótipos, sendo eles:
-- Calculadora de hipotenusa
-- Olá mundo
+    - Calculadora de hipotenusa
+    - Olá mundo
+
+Versão 1.3:
+- Limpeza do código
+- Funções personalizadas pelo usuário
 
 ## Agradecimentos
 
