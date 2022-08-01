@@ -76,21 +76,23 @@ def code(name):
             compile = int(input('>>> '))
 
             if compile == 1:
-                print('Você quer executar ele também?')
+                print('\nVocê quer executar ele também?')
                 print('[0] - Não, não quero executar.\n[1] - Sim, também quero executar.')
                 run = int(input('>>> '))
 
                 if run == 0:
-                    print(f'OK! Procure por {name} na pasta.')
+                    print(f'\nOK! Procure por {name} na pasta.')
                     system(f'./compy {name} 0')
                 
-                elif run == 1: system(f'./compy {name} 1')
+                elif run == 1:
+                    print('')
+                    system(f'./compy {name} 1')
                 
                 else:
                     print('Tente novamente.')
                     quit()
             
-            elif compile == 0: print('OK! Procure por {name}.c na pasta')
+            elif compile == 0: print(f'\nOK! Procure por {name}.c na pasta')
 
             else:
                 print('Tente novamente.')
