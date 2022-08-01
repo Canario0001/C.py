@@ -26,9 +26,9 @@ Recomendo o uso de Python 3.7 para cima.
 
 ## Compilar
 
-Infelizmente, por ser um experimental, o programa não compila o código em C diretamente. 
+Atualmente, o programa é capaz de compilar o código em C. Entretanto, é necessário que o usuário tenha G++ instalado. E, infelizmente, por utilizar um script em bash para compilar, o programa não consegue compilar o código para Windows.
 
-Recomendo o uso de ferramentas como o GCC ou Clang.
+Neste caso, recomendo o uso de ferramentas como o GCC, G++ ou Clang.
 
 ## Updates
 
@@ -44,6 +44,9 @@ Versão 1.2:
 Versão 1.3:
 - Limpeza do código
 - Funções personalizadas pelo usuário
+
+Versão 1.4: 
+- Compilação e autoexecução do código
 
 ## Agradecimentos
 

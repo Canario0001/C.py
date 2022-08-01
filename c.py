@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from os import system
 
 def code(name):
     print('Digite as bibliotecas que você vai usar.\n')
@@ -20,12 +21,12 @@ def code(name):
 
         elif library == 'hypo':
             hypocode(name)
-            print(f'Calculadora criada! Procure por {name}.c na pasta.')
+            print(f'Calculadora criada! Procure por {name} na pasta.')
             quit()
 
         elif library == 'hello':
             hellocode(name)
-            print(f'Olá mundo criado! Procure por {name}.c na pasta.')
+            print(f'Olá mundo criado! Procure por {name} na pasta.')
             quit()
 
         else:
@@ -45,7 +46,7 @@ def code(name):
             nome = input('>>> ')
 
             argl = []
-            print('\nEscreva os argumentos (não se esqueça dos seus valores). Digite "sair" quando terminar.\n') # arrumar essa macarronada de codigo
+            print('\nEscreva os argumentos (não se esqueça dos seus valores). Digite "sair" quando terminar.\n') 
             while True:
                 arg = input('>>> ')
                 if arg == 'sair': break
@@ -70,10 +71,35 @@ def code(name):
             with open(f'{name}.c', 'a') as f:
                 f.write('}')
             
-            print(f'\nArquivo criado! Procure por {name}.c na pasta.')
-            break
+            print('\nArquivo criado! Você quer compilar ele?')
+            print('[0] - Não, não quero compilar ele.\n[1] - Sim, quero compilar ele.')
+            compile = int(input('>>> '))
 
-        if linha != '' and linha[-1] != ';': linha += ';'
+            if compile == 1:
+                print('Você quer executar ele também?')
+                print('[0] - Não, não quero executar.\n[1] - Sim, também quero executar.')
+                run = int(input('>>> '))
+
+                if run == 0:
+                    print(f'OK! Procure por {name} na pasta.')
+                    system(f'./compy {name} 0')
+                
+                elif run == 1: system(f'./compy {name} 1')
+                
+                else:
+                    print('Tente novamente.')
+                    quit()
+            
+            elif compile == 0: print('OK! Procure por {name}.c na pasta')
+
+            else:
+                print('Tente novamente.')
+                quit()
+
+            break
+            
+
+        if linha != '' and linha[-1] != ';' and linha[-1] != '{' and linha[-1] != '}': linha += ';'
         
         with open(f'{name}.c', 'a') as f:
             f.write(f'{linha}\n')
@@ -82,12 +108,16 @@ def code(name):
 def hypocode(name):
     with open(f'{name}.c', 'w') as f:
         f.write('#include <stdio.h>\n#include <math.h>\nint main(){\ndouble a; double b;\nprintf("Coloque o lado A: "); scanf("%lf", &a);\nprintf("Coloque o lado B: "); scanf("%lf", &b);\nprintf("Lado C: %lf", sqrt(a*a+b*b));\nreturn 0;\n}')
+    
+    system(f'./compy {name} 0')
 
 def hellocode(name):
     with open(f'{name}.c', 'w') as f:
         f.write('#include <stdio.h>\nint main(){\nprintf("Olá, mundo!"); return 0;\n}')
 
-def customfunc(file, name, value, *args): # consertar aq com os argumentos etc.
+    system(f'./compy {name} 0')
+
+def customfunc(file, name, value, *args):
     with open(f'{file}.c', 'a') as f: f.write('{} {}({})'.format(value, name, *args))
     with open(f'{file}.c', 'a') as f: f.write('{\n')
 
