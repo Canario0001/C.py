@@ -26,9 +26,15 @@ Recomendo o uso de Python 3.7 para cima.
 
 ## Compilar
 
-Atualmente, o programa é capaz de compilar o código em C. Entretanto, é necessário que o usuário tenha G++ instalado. E, infelizmente, por utilizar um script em bash para compilar, o programa não consegue compilar o código para Windows.
+Atualmente, o programa é capaz de compilar o código em C. Entretanto, é necessário que o usuário tenha G++ instalado.
 
-Neste caso, recomendo o uso de ferramentas como o GCC, G++ ou Clang.
+Em sistemas tipo Unix ou macOS é necessário que o compilador (`compy`) tenha permissão para executar. Normalmente, é usado o comando abaixo:
+
+```sh
+chmod +x compy
+```
+
+Infelizmente, por utilizar um script em bash para compilar, o programa não consegue compilar o código para Windows. Neste caso, recomendo o uso de ferramentas como o GCC, G++ ou Clang.
 
 ## Updates
 
