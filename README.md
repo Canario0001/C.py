@@ -54,6 +54,9 @@ Versão 1.3:
 Versão 1.4: 
 - Compilação e autoexecução do código
 
+Versão 1.4.1:
+- Limpeza do código
+
 ## Agradecimentos
 
 Quero agradecer meu amigo [Bergeno](https://github.com/bergeno) por me motivar a colocar esse projeto aqui, no GitHub.

@@ -15,8 +15,7 @@ def code(name):
         if library == 'q': break
 
         elif library == 'init':
-            with open(f'{name}.c', 'w') as f:
-                f.write('#include <stdio.h>\n')
+            escrever(f'{name}.c', 'w', '#include <stdio.h>\n')
             break
 
         elif library == 'hypo':
@@ -30,8 +29,7 @@ def code(name):
             quit()
 
         else:
-            with open(f'{name}.c', 'a') as f:
-                f.write(f'#include {library}\n')
+            escrever(f'{name}.c', 'a', f'#include {library}\n')
             continue
 
     while True:
@@ -61,15 +59,14 @@ def code(name):
             print('Tente novamente.')
             quit()
     
-    with open(f'{name}.c', 'a') as f: f.write('int main() {\n')
+    escrever(f'{name}.c', 'a', 'int main() {\n')
     print('\nDigite seu código abaixo.\nPs: digite "sair" para fechar o programa.\n')
 
     while True:
         linha = input('>>> ')
 
         if linha == 'sair':
-            with open(f'{name}.c', 'a') as f:
-                f.write('}')
+            escrever(f'{name}.c', 'a', '}')
             
             print('\nArquivo criado! Você quer compilar ele?')
             print('[0] - Não, não quero compilar ele.\n[1] - Sim, quero compilar ele.')
@@ -103,25 +100,21 @@ def code(name):
 
         if linha != '' and linha[-1] != ';' and linha[-1] != '{' and linha[-1] != '}': linha += ';'
         
-        with open(f'{name}.c', 'a') as f:
-            f.write(f'{linha}\n')
+        escrever(f'{name}.c', 'a', f'{linha}\n')
         continue
 
 def hypocode(name):
-    with open(f'{name}.c', 'w') as f:
-        f.write('#include <stdio.h>\n#include <math.h>\nint main(){\ndouble a; double b;\nprintf("Coloque o lado A: "); scanf("%lf", &a);\nprintf("Coloque o lado B: "); scanf("%lf", &b);\nprintf("Lado C: %lf", sqrt(a*a+b*b));\nreturn 0;\n}')
+    escrever(f'{name}.c', 'w', '#include <stdio.h>\n#include <math.h>\nint main(){\ndouble a; double b;\nprintf("Coloque o lado A: "); scanf("%lf", &a);\nprintf("Coloque o lado B: "); scanf("%lf", &b);\nprintf("Lado C: %lf", sqrt(a*a+b*b));\nreturn 0;\n}')
     
     system(f'./compy {name} 0')
 
 def hellocode(name):
-    with open(f'{name}.c', 'w') as f:
-        f.write('#include <stdio.h>\nint main(){\nprintf("Olá, mundo!"); return 0;\n}')
+    escrever(f'{name}.c', 'w', '#include <stdio.h>\nint main(){\nprintf("Olá, mundo!"); return 1;\n}')
 
     system(f'./compy {name} 0')
 
 def customfunc(file, name, value, *args):
-    with open(f'{file}.c', 'a') as f: f.write('{} {}({})'.format(value, name, *args))
-    with open(f'{file}.c', 'a') as f: f.write('{\n')
+    escrever(f'{file}.c', 'a', '{} {}({})'.format(value, name, *args))
 
     print('\nDigite seu código abaixo.\nPs: digite "end func" para encerrar a função e continuar ao código')
 
@@ -129,16 +122,17 @@ def customfunc(file, name, value, *args):
         line = input('>>> ')
 
         if line == 'end func':
-            with open(f'{file}.c', 'a') as f: f.write('}\n')
+            escrever(f'{file}.c', 'a', '}\n')
             print('\nFunção criada!\n')
             break
 
         if line != '' and line[-1] != ';': line += ';'
 
-        with open(f'{file}.c', 'a') as f:
-            f.write(f'{line}\n')
+        escrever(f'{file}.c', 'a', f'{line}\n')
         continue
         
+def escrever(file:str, mode:str, text:str):
+    with open(file, mode) as f: f.write(text)
 
 if __name__ == '__main__':
     code('main')
